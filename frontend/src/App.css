@@ -9,6 +9,10 @@
   font-weight: 400;
   font-size: 20px;
 }
+body {
+  background: #fff;
+  color: #111;
+}
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -137,6 +141,18 @@ input::-webkit-outer-spin-button {
 
 .navbar .links ul:last-child {
   gap: 10px;
+}
+
+.navbar .theme_toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #444;
+}
+.navbar .theme_toggle:hover {
+  color: #077edf;
+  transition: 0.3s;
 }
 
 @media (max-width: 1320px) {
@@ -1548,4 +1564,30 @@ button:disabled:hover {
   background: gray;
   cursor: not-allowed;
   color: #111;
+}
+
+body.dark {
+  background: #111;
+  color: #fff;
+}
+
+body.dark .navbar {
+  background: #111;
+  border-bottom: 1px solid #444;
+}
+
+body.dark .navbar .links ul li a {
+  color: #fff;
+}
+
+body.dark .navbar .links ul li a:hover {
+  color: #077edf;
+}
+
+body.dark .theme_toggle {
+  color: #fff;
+}
+
+body.dark .theme_toggle:hover {
+  color: #077edf;
 }
