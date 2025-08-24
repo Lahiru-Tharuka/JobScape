@@ -650,8 +650,9 @@ footer div ul a span {
 
 .authPage {
   display: flex;
-  min-width: 1500px;
-  max-width: 1500px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin: 0 auto;
   min-height: 100vh;
 }
