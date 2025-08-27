@@ -40,7 +40,7 @@ const Hero = () => {
           <Link to="/jobs" className="btn">
             Browse Jobs
           </Link>
-          <Link to="/dashboard" className="outline_btn">
+          <Link to="/dashboard" className="btn">
             Post a Job
           </Link>
         </div>

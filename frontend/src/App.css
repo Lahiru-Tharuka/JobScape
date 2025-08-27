@@ -554,42 +554,6 @@ footer div ul a span {
   }
 }
 
-.featured-jobs {
-  padding: 50px 20px;
-  max-width: 1700px;
-  margin: 0 auto;
-}
-.featured-jobs h3 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #077edf;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
-}
-.featured-jobs .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-.featured-jobs .card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  padding: 25px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.featured-jobs .card .location {
-  color: gray;
-  font-size: 0.9rem;
-}
-.featured-jobs .card .btn {
-  align-self: flex-start;
-  margin-top: 10px;
-}
 
 .services {
   padding: 50px 0;
