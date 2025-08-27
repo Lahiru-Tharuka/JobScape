@@ -11,6 +11,7 @@ import MyJobs from "../components/MyJobs";
 import JobPost from "../components/JobPost";
 import Applications from "../components/Applications";
 import MyApplications from "../components/MyApplications";
+import RecommendedJobs from "../components/RecommendedJobs";
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
@@ -129,6 +130,18 @@ const Dashboard = () => {
                   </button>
                 </li>
               )}
+              {user && user.role === "Job Seeker" && (
+                <li>
+                  <button
+                    onClick={() => {
+                      setComponentName("Recommended Jobs");
+                      setShow(!show);
+                    }}
+                  >
+                    Recommended Jobs
+                  </button>
+                </li>
+              )}
               <li>
                 <button onClick={handleLogout}>Logout</button>
               </li>
@@ -167,6 +180,9 @@ const Dashboard = () => {
                   break;
                 case "My Applications":
                   return <MyApplications />;
+                  break;
+                case "Recommended Jobs":
+                  return <RecommendedJobs />;
                   break;
 
                 default:

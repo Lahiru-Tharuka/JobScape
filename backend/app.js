@@ -8,6 +8,7 @@ import fileUpload from "express-fileupload";
 import userRouter from "./routes/userRouter.js";
 import jobRouter from "./routes/jobRouter.js";
 import applicationRouter from "./routes/applicationRouter.js";
+import recommendationRouter from "./routes/recommendationRouter.js";
 import { newsLetterCron } from "./automation/newsLetterCron.js";
 
 
@@ -36,6 +37,7 @@ app.use(
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/job", jobRouter);
 app.use("/api/v1/application", applicationRouter);
+app.use("/api/v1", recommendationRouter);
 
 newsLetterCron()
 connection();
