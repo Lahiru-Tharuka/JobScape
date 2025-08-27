@@ -489,15 +489,30 @@ footer div ul a span {
 }
 
 .hero {
-  min-height: 800px;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("/jobscape.png") center/cover no-repeat;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.hero .content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 1700px;
-  margin: 0 auto;
-  gap: 50px;
+  gap: 30px;
+  padding: 20px;
+  max-width: 900px;
 }
 .hero h1 {
   font-size: 3rem;
@@ -507,51 +522,73 @@ footer div ul a span {
 .hero h4 {
   font-size: 1.5rem;
   font-weight: 500;
-  color: gray;
 }
-.hero .box {
-  max-width: 900px;
-  text-align: center;
-  background: #077edf;
-  color: #111;
-  padding: 50px 75px;
-  border-radius: 35px;
-  letter-spacing: 1px;
-  font-weight: 500;
-  transition: 0.3s;
+.hero .search-bar {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
-.hero .box:hover {
-  transform: translateY(-10px);
-  transition: 0.3s;
-  background: #111;
-  color: #fff;
+.hero .search-bar input {
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: none;
+  min-width: 250px;
 }
-
-.hero-image {
-  width: 200px;
-  height: auto;
+.hero .search-bar button {
+  padding: 12px 30px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
 }
-
 .hero .cta {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
-@media (max-width: 1720px) {
-  .hero {
-    min-width: 100%;
-    padding: 20px;
-    text-align: center;
-  }
-}
 @media (max-width: 810px) {
   .hero h1 {
     font-size: 2.2rem;
   }
-  .hero .box {
-    padding: 40px 20px;
-  }
+}
+
+.featured-jobs {
+  padding: 50px 20px;
+  max-width: 1700px;
+  margin: 0 auto;
+}
+.featured-jobs h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #077edf;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.featured-jobs .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.featured-jobs .card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.featured-jobs .card .location {
+  color: gray;
+  font-size: 0.9rem;
+}
+.featured-jobs .card .btn {
+  align-self: flex-start;
+  margin-top: 10px;
 }
 
 .services {
@@ -585,6 +622,7 @@ footer div ul a span {
   padding: 32px 20px;
   border-radius: 6px;
   transition: 0.3s;
+  align-items: center;
 }
 .services .grid .card:hover {
   background: #077edf;
@@ -594,6 +632,10 @@ footer div ul a span {
 .services .grid .card h4 {
   font-weight: 600;
   text-transform: uppercase;
+}
+.services .grid .card .icon {
+  font-size: 40px;
+  color: #077edf;
 }
 @media (max-width: 1720px) {
   .services {
