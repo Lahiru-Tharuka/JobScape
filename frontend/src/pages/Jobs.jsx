@@ -8,20 +8,16 @@ import { Link } from "react-router-dom";
 
 const Jobs = () => {
   const [city, setCity] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
   const [niche, setNiche] = useState("");
-  const [selectedNiche, setSelectedNiche] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const { jobs, loading, error } = useSelector((state) => state.jobs);
 
   const handleCityChange = (city) => {
     setCity(city);
-    setSelectedCity(city);
   };
   const handleNicheChange = (niche) => {
     setNiche(niche);
-    setSelectedNiche(niche);
   };
 
   const dispatch = useDispatch();
@@ -105,35 +101,29 @@ const Jobs = () => {
             <div className="filter-bar">
               <div className="cities">
                 <h2>Filter Job By City</h2>
-                {cities.map((city, index) => (
-                  <div key={index}>
-                    <input
-                      type="radio"
-                      id={city}
-                      name="city"
-                      value={city}
-                      checked={selectedCity === city}
-                      onChange={() => handleCityChange(city)}
-                      />
-                    <label htmlFor={city}>{city}</label>
-                  </div>
-                ))}
+                <select
+                  value={city}
+                  onChange={(e) => handleCityChange(e.target.value)}
+                >
+                  {cities.map((city, index) => (
+                    <option value={city} key={index}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="cities">
                 <h2>Filter Job By Niche</h2>
-                {nichesArray.map((niche, index) => (
-                  <div key={niche}>
-                    <input
-                      type="radio"
-                      id={niche}
-                      name="niche"
-                      value={niche}
-                      checked={selectedNiche === niche}
-                      onChange={() => handleNicheChange(niche)}
-                    />
-                    <label htmlFor={niche}>{niche}</label>
-                  </div>
-                ))}
+                <select
+                  value={niche}
+                  onChange={(e) => handleNicheChange(e.target.value)}
+                >
+                  {nichesArray.map((niche, index) => (
+                    <option value={niche} key={index}>
+                      {niche}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="container">
@@ -159,7 +149,8 @@ const Jobs = () => {
                 </select>
               </div>
               <div className="jobs_container">
-                {jobs && jobs.length > 0 ? (jobs.map((element) => {
+                {jobs && jobs.length > 0 ? (
+                  jobs.map((element) => {
                     return (
                       <div className="card" key={element._id}>
                         {element.hiringMultipleCandidates === "Yes" ? (
@@ -189,16 +180,14 @@ const Jobs = () => {
                         </div>
                       </div>
                     );
-                  })) : (
-                  /************************************************************/
-                  /* BUG No.2 */
-                  <img src="./notfound.png" alt="job-not-found" style={{width: "100%"}}/>)
-                  /************************************************************/
-
-
-
-
-                  }
+                  })
+                ) : (
+                  <img
+                    src="/jobscape.png"
+                    alt="job-not-found"
+                    style={{ width: "100%" }}
+                  />
+                )}
               </div>
             </div>
           </div>

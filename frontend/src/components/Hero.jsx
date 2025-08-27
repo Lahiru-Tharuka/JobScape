@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
     <section className="hero">
+      <img src="/jobscape.png" alt="job search" className="hero-image" />
       <h1>Find Your Dream Job Today</h1>
       <h4>
         Connecting Talent with Opportunities Across the Nation for Every Skill
@@ -13,6 +15,14 @@ const Hero = () => {
         you're a seasoned professional or just starting out, find the perfect
         role to advance your career. Our platform makes job searching easy and
         efficient, bringing you closer to your next big opportunity.
+      </div>
+      <div className="cta">
+        <Link to="/jobs" className="btn">
+          Start Searching Jobs
+        </Link>
+        <Link to="/dashboard" className="outline_btn">
+          Post a Job
+        </Link>
       </div>
     </section>
   );

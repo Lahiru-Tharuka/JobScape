@@ -83,8 +83,10 @@ input::-webkit-outer-spin-button {
   border-bottom: 1px solid rgb(133, 133, 133);
   padding: 20px 110px;
   align-items: center;
-  position: relative;  /* Added for proper stacking */
-  background: #fff;   /* Added to ensure content visibility */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
 }
 
 .navbar .hamburger {
@@ -492,7 +494,7 @@ footer div ul a span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 1700px;
+  width: 100%;
   max-width: 1700px;
   margin: 0 auto;
   gap: 50px;
@@ -523,6 +525,18 @@ footer div ul a span {
   transition: 0.3s;
   background: #111;
   color: #fff;
+}
+
+.hero-image {
+  width: 200px;
+  height: auto;
+}
+
+.hero .cta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 @media (max-width: 1720px) {
   .hero {
@@ -835,10 +849,8 @@ footer div ul a span {
   border-bottom: 1px solid gray;
   margin-bottom: 20px;
 }
-.jobs .wrapper .filter-bar .cities div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.jobs .wrapper .filter-bar .cities select {
+  padding: 4px 8px;
 }
 .jobs .search-tab-wrapper {
   display: flex;
