@@ -42,11 +42,18 @@ const Navbar = () => {
                 </Link>
               </li>
             ) : (
-              <li>
-                <Link to={"/login"} onClick={() => setShow(!show)}>
-                  LOGIN
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link to={"/register"} onClick={() => setShow(!show)}>
+                    REGISTER
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/login"} onClick={() => setShow(!show)}>
+                    LOGIN
+                  </Link>
+                </li>
+              </>
             )}
           </ul>
         </div>
