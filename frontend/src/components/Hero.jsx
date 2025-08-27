@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section className="hero">
-      <img src="/jobscape.png" alt="job search" className="hero-image" />
       <h1>Find Your Dream Job Today</h1>
       <h4>
         Connecting Talent with Opportunities Across the Nation for Every Skill
