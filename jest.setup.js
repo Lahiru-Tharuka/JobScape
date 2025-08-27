@@ -8,3 +8,4 @@ process.env.SMTP_SERVICE = 'gmail';
 process.env.SMTP_PORT = '465';
 process.env.SMTP_MAIL = 'test@test.com';
 process.env.SMTP_PASSWORD = 'password';
+process.env.ML_SERVICE_URL = 'http://localhost:8001';
