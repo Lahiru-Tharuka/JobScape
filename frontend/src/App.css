@@ -21,8 +21,8 @@ input::-webkit-outer-spin-button {
 .btn,
 .black_btn,
 .outline_btn {
-  background: #077edf;
-  color: #111;
+  background: #13617d;
+  color: #fff;
   font-weight: 500;
   border: none;
   transition: 0.3s;
@@ -61,8 +61,8 @@ input::-webkit-outer-spin-button {
 }
 .outline_btn {
   background: transparent;
-  color: #077edf;
-  border: 1px solid #077edf;
+  color: #13617d;
+  border: 1px solid #13617d;
 }
 .btn:hover {
   background-color: #111;
@@ -71,8 +71,8 @@ input::-webkit-outer-spin-button {
   cursor: pointer;
 }
 .outline_btn:hover {
-  background: #077edf;
-  color: #111;
+  background: #13617d;
+  color: #fff;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -104,7 +104,7 @@ input::-webkit-outer-spin-button {
   font-size: 26px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #077edf;
+  color: #13617d;
   margin: 0;
 }
 
@@ -137,7 +137,7 @@ input::-webkit-outer-spin-button {
 }
 
 .navbar .links ul li a:hover {
-  color: #077edf;
+  color: #13617d;
   transition: 0.3s;
 }
 
@@ -153,7 +153,7 @@ input::-webkit-outer-spin-button {
   color: #444;
 }
 .navbar .theme_toggle:hover {
-  color: #077edf;
+  color: #13617d;
   transition: 0.3s;
 }
 
@@ -206,7 +206,7 @@ input::-webkit-outer-spin-button {
     font-size: 32px;  /* Increased from 26px */
     font-weight: 600;
     text-transform: uppercase;
-    color: #077edf;
+    color: #13617d;
     margin: 0;
   }
   
@@ -239,7 +239,7 @@ input::-webkit-outer-spin-button {
   }
   
   .navbar .links ul li a:hover {
-    color: #077edf;
+    color: #13617d;
     transition: 0.3s;
   }
   
@@ -443,7 +443,7 @@ footer div ul a {
   transition: 0.3s;
 }
 footer div ul a:hover {
-  color: #077edf;
+  color: #13617d;
   transition: 0.3s;
 }
 footer div ul a span {
@@ -569,7 +569,7 @@ footer div ul a span {
 .services h3 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #077edf;
+  color: #13617d;
   text-transform: uppercase;
 }
 .services .grid {
@@ -589,8 +589,8 @@ footer div ul a span {
   align-items: center;
 }
 .services .grid .card:hover {
-  background: #077edf;
-  color: #111;
+  background: #13617d;
+  color: #fff;
   transition: 0.3s;
 }
 .services .grid .card h4 {
@@ -599,7 +599,7 @@ footer div ul a span {
 }
 .services .grid .card .icon {
   font-size: 40px;
-  color: #077edf;
+  color: #13617d;
 }
 @media (max-width: 1720px) {
   .services {
@@ -616,12 +616,12 @@ footer div ul a span {
   align-items: center;
   margin: 0 auto;
   gap: 50px;
-  background: #077edf;
+  background: #13617d;
 }
 .howItWorks h3 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #111;
+  color: #fff;
   text-transform: uppercase;
 }
 .howItWorks .container {
@@ -758,7 +758,7 @@ footer div ul a span {
 .authPage .container form .inputTag div svg {
   width: 10%;
   font-size: 1.5rem;
-  background: #077edf;
+  background: #13617d;
   height: 46px;
   padding: 8px;
   color: #fff;
@@ -770,17 +770,17 @@ footer div ul a span {
   margin-top: 25px;
   font-weight: 700;
   color: #fff;
-  background: #077edf;
+  background: #13617d;
   font-size: 1.2rem;
   border-radius: 7px;
 }
 .authPage .container form a {
   padding: 12px;
   text-align: center;
-  border: 1px solid #077edf;
+  border: 1px solid #13617d;
   margin-top: 25px;
   font-weight: 700;
-  color: #077edf;
+  color: #13617d;
   font-size: 1.2rem;
   text-decoration: none;
   border-radius: 7px;
@@ -884,8 +884,8 @@ footer div ul a span {
   position: absolute;
   right: 16px;
   top: 11px;
-  background: #077edf;
-  color: #111;
+  background: #13617d;
+  color: #fff;
   font-weight: 500;
   padding: 2px 10px;
   border-radius: 7px;
@@ -1047,7 +1047,7 @@ footer div ul a span {
   color: #111;
 }
 .account .component_header p:last-child span {
-  color: #077edf;
+  color: #13617d;
 }
 
 .account .container {
@@ -1079,11 +1079,11 @@ footer div ul a span {
   background: transparent;
 }
 .account .container .sidebar .sidebar_links button:hover {
-  color: #077edf;
+  color: #13617d;
   transition: 0.3s;
 }
 .account .container .sidebar .sidebar_links .active {
-  color: #077edf;
+  color: #13617d;
 }
 .account .container .banner {
   width: 100%;
@@ -1109,7 +1109,7 @@ footer div ul a span {
 .account_components h3 {
   font-size: 30px;
   font-weight: 600;
-  color: #077edf;
+  color: #13617d;
 }
 .account_components div:first-child {
   font-size: 30px;
@@ -1599,7 +1599,7 @@ body.dark .navbar .links ul li a {
 }
 
 body.dark .navbar .links ul li a:hover {
-  color: #077edf;
+  color: #13617d;
 }
 
 body.dark .theme_toggle {
@@ -1607,5 +1607,5 @@ body.dark .theme_toggle {
 }
 
 body.dark .theme_toggle:hover {
-  color: #077edf;
+  color: #13617d;
 }
