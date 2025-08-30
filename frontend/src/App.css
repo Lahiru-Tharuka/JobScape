@@ -28,6 +28,7 @@ body.dark {
 body {
   background: var(--color-bg);
   color: var(--color-text);
+  text-align: center;
 }
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
