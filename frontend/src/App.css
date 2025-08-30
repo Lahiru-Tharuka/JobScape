@@ -2251,77 +2251,6 @@ p {
   font-weight: 600;
 }
 
-/* Demo Buttons */
-.demo-buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.btn-demo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1rem;
-  border: 2px solid var(--border-color);
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  border-radius: var(--radius);
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  text-align: center;
-  justify-content: center;
-}
-
-.btn-demo:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
-}
-
-.btn-demo.employer:hover {
-  border-color: var(--primary);
-  background: rgba(99, 102, 241, 0.1);
-}
-
-.btn-demo.seeker:hover {
-  border-color: var(--accent);
-  background: rgba(249, 115, 22, 0.1);
-}
-
-.btn-demo:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Divider */
-.divider {
-  position: relative;
-  text-align: center;
-  margin: 2rem 0;
-}
-
-.divider::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--border-color);
-}
-
-.divider span {
-  background: var(--bg-card);
-  padding: 0 1rem;
-  color: var(--text-muted);
-  position: relative;
-  z-index: 1;
-  font-size: 0.9rem;
-}
-
 /* Form Options */
 .form-options {
   display: flex;
@@ -2423,10 +2352,6 @@ p {
 
 /* Responsive Design for Login */
 @media (max-width: 768px) {
-  .demo-buttons {
-    grid-template-columns: 1fr;
-  }
-  
   .form-options {
     flex-direction: column;
     gap: 1rem;
@@ -2443,16 +2368,11 @@ p {
   .auth-container {
     padding: 1.5rem;
   }
-  
+
   .auth-logo h1 {
     font-size: 1.75rem;
   }
-  
-  .btn-demo {
-    padding: 0.75rem;
-    font-size: 0.9rem;
-  }
-  
+
   .login-btn {
     padding: 0.875rem 1.5rem;
   }
@@ -2487,10 +2407,6 @@ p {
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .btn-demo {
-    border-width: 3px;
-  }
-  
   .input-with-icon input,
   .input-with-icon select {
     border-width: 2px;
@@ -2502,12 +2418,11 @@ p {
   .auth-form .form-group {
     animation: none;
   }
-  
-  .btn-demo:hover,
+
   .password-toggle:hover {
     transform: none;
   }
-  
+
   .spinner {
     animation-duration: 2s;
   }

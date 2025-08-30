@@ -73,22 +73,6 @@ const Login = () => {
       navigateTo("/dashboard");
     }
   }, [dispatch, error, isAuthenticated, navigateTo]);
-
-  const handleDemoLogin = (userType) => {
-    setRole(userType);
-    setEmail(userType === "Employer" ? "demo.employer@jobscape.com" : "demo.seeker@jobscape.com");
-    setPassword("demopassword123");
-    
-    // Auto-submit after a short delay to show the filled form
-    setTimeout(() => {
-      const formData = new FormData();
-      formData.append("role", userType);
-      formData.append("email", userType === "Employer" ? "demo.employer@jobscape.com" : "demo.seeker@jobscape.com");
-      formData.append("password", "demopassword123");
-      dispatch(login(formData));
-    }, 1000);
-  };
-
   return (
     <section className="auth-page">
       <div className="auth-container">
@@ -98,32 +82,6 @@ const Login = () => {
             <h1>Welcome Back</h1>
           </div>
           <p>Sign in to your JobScape account</p>
-        </div>
-
-        {/* Demo Login Buttons */}
-        <div className="demo-buttons">
-          <button
-            type="button"
-            className="btn btn-demo employer"
-            onClick={() => handleDemoLogin("Employer")}
-            disabled={loading}
-          >
-            <FaUser />
-            Demo Employer Login
-          </button>
-          <button
-            type="button"
-            className="btn btn-demo seeker"
-            onClick={() => handleDemoLogin("Job Seeker")}
-            disabled={loading}
-          >
-            <FaUser />
-            Demo Job Seeker Login
-          </button>
-        </div>
-
-        <div className="divider">
-          <span>Or sign in manually</span>
         </div>
 
         <form className="auth-form" onSubmit={handleLogin}>
