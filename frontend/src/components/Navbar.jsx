@@ -15,7 +15,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.body.classList.toggle("light", theme === "light");
+    document.body.className = theme === "dark" ? "dark" : "";
     localStorage.setItem("theme", theme);
   }, [theme]);
 
