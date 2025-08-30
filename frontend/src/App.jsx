@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -14,15 +14,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { getUser } from "./store/slices/userSlice";
-import { useTheme } from "./context/ThemeContext.jsx";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { theme } = useTheme();
 
   useEffect(() => {
     dispatch(getUser());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -41,7 +39,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-        <ToastContainer position="top-right" theme={theme} />
+        <ToastContainer position="top-right" theme="dark" />
       </Router>
     </>
   );

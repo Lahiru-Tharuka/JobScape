@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSun, FaMoon, FaUserCircle } from "react-icons/fa";
-import { useTheme } from "../context/ThemeContext.jsx";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "dark"
+  );
   const [scrolled, setScrolled] = useState(false);
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const location = useLocation();
+
+  useEffect(() => {
+    document.body.classList.toggle("light", theme === "light");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +28,9 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleTheme = () =>
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
   const isActiveLink = (path) => {
     return location.pathname === path;
@@ -36,12 +46,12 @@ const Navbar = () => {
               <span className="logo-text">JobScape</span>
             </Link>
           </div>
-
+          
           <div className="nav-links">
             <ul>
               <li>
-                <Link
-                  to="/"
+                <Link 
+                  to="/" 
                   className={`nav-link ${isActiveLink('/') ? 'active' : ''}`}
                   onClick={() => setShow(false)}
                 >
@@ -49,8 +59,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/jobs"
+                <Link 
+                  to="/jobs" 
                   className={`nav-link ${isActiveLink('/jobs') ? 'active' : ''}`}
                   onClick={() => setShow(false)}
                 >
@@ -60,8 +70,8 @@ const Navbar = () => {
               {isAuthenticated ? (
                 <>
                   <li>
-                    <Link
-                      to="/dashboard"
+                    <Link 
+                      to="/dashboard" 
                       className={`nav-link ${isActiveLink('/dashboard') ? 'active' : ''}`}
                       onClick={() => setShow(false)}
                     >
@@ -80,8 +90,8 @@ const Navbar = () => {
               ) : (
                 <>
                   <li>
-                    <Link
-                      to="/register"
+                    <Link 
+                      to="/register" 
                       className={`nav-link ${isActiveLink('/register') ? 'active' : ''}`}
                       onClick={() => setShow(false)}
                     >
@@ -89,8 +99,8 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to="/login"
+                    <Link 
+                      to="/login" 
                       className={`nav-link ${isActiveLink('/login') ? 'active' : ''}`}
                       onClick={() => setShow(false)}
                     >
@@ -101,8 +111,7 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-
-  
+          
           <div className="nav-actions">
             <button
               className="theme-toggle"
@@ -111,7 +120,7 @@ const Navbar = () => {
             >
               {theme === "light" ? <FaMoon /> : <FaSun />}
             </button>
-
+            
             <button
               className="hamburger"
               onClick={() => setShow(!show)}
