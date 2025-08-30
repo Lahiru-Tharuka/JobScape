@@ -88,48 +88,11 @@ const Jobs = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <section className="jobs">
-          <div className="jobs-header">
-            <h1>Find Your Dream Job</h1>
-            <p>Discover opportunities that match your skills and aspirations</p>
-          </div>
-          <div className="search-tab-wrapper">
-            <input
-              type="text"
-              value={searchKeyword}
-              onChange={(e) => setSearchKeyword(e.target.value)}
-            />
-            <button onClick={handleSearch}>Find Job</button>
-            <FaSearch />
-          </div>
-          <div className="wrapper">
-            <div className="filter-bar">
-              <div className="cities">
-                <h2>Filter Job By City</h2>
-                <select
-                  value={city}
-                  onChange={(e) => handleCityChange(e.target.value)}
-                >
-                  {cities.map((city, index) => (
-                    <option value={city} key={index}>
-                      {city}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="cities">
-                <h2>Filter Job By Niche</h2>
-                <select
-                  value={niche}
-                  onChange={(e) => handleNicheChange(e.target.value)}
-                >
-                  {nichesArray.map((niche, index) => (
-                    <option value={niche} key={index}>
-                      {niche}
-                    </option>
-                  ))}
-                </select>
-              </div>
+        <section className="jobs-page">
+          <div className="container">
+            <div className="page-header">
+              <h1>Find Your Dream Job</h1>
+              <p>Discover opportunities that match your skills and aspirations</p>
             </div>
 
             {/* Search Bar */}

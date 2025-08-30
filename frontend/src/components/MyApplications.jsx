@@ -9,6 +9,7 @@ import {
 } from "../store/slices/applicationSlice";
 import Spinner from "../components/Spinner";
 import Button from "./ui/Button";
+import { RiDeleteBinLine, RiFileList3Line, RiCalendarLine } from "react-icons/ri";
 
 const MyApplications = () => {
   const { loading, error, applications, message } = useSelector(
@@ -41,46 +42,73 @@ const MyApplications = () => {
       {loading ? (
         <Spinner />
       ) : applications && applications.length <= 0 ? (
-        <h1 style={{ fontSize: "1.4rem", fontWeight: "600" }}>
-          You have not applied for any job.
-        </h1>
+        <div className="empty-state">
+          <div className="empty-icon">
+            <RiFileList3Line />
+          </div>
+          <h2>No Applications Yet</h2>
+          <p>You haven't applied for any jobs yet. Start browsing jobs to apply!</p>
+          <Button to="/jobs">Browse Jobs</Button>
+        </div>
       ) : (
         <>
           <div className="account_components">
-            <h3>My Application For Jobs</h3>
+            <div className="component-header">
+              <h3>My Job Applications</h3>
+              <p>You've applied to {applications.length} job{applications.length !== 1 ? 's' : ''}</p>
+            </div>
             <div className="applications_container">
               {applications.map((element) => {
                 return (
-                  <div className="card" key={element._id}>
-                    <p className="sub-sec">
-                      <span>Job Title: </span> {element.jobInfo.jobTitle}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Name</span> {element.jobSeekerInfo.name}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Email</span> {element.jobSeekerInfo.email}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Phone: </span> {element.jobSeekerInfo.phone}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Address: </span> {element.jobSeekerInfo.address}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Coverletter: </span>
-                      <textarea
-                        value={element.jobSeekerInfo.coverLetter}
-                        rows={5}
-                        disabled
-                      ></textarea>
-                    </p>
-                    <div className="btn-wrapper">
+                  <div className="card application-card" key={element._id}>
+                    <div className="card-header">
+                      <h4>{element.jobInfo.jobTitle}</h4>
+                      <span className="application-date">
+                        <RiCalendarLine />
+                        Applied on {new Date(element.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                    
+                    <div className="application-status">
+                      <span className="status-badge status-pending">Pending</span>
+                    </div>
+                    
+                    <div className="applicant-info">
+                      <div className="info-grid">
+                        <div className="info-item">
+                          <span className="info-label">Company</span>
+                          <span className="info-value">{element.jobInfo.companyName}</span>
+                        </div>
+                        <div className="info-item">
+                          <span className="info-label">Location</span>
+                          <span className="info-value">{element.jobInfo.location}</span>
+                        </div>
+                        <div className="info-item">
+                          <span className="info-label">Job Type</span>
+                          <span className="info-value">{element.jobInfo.jobType}</span>
+                        </div>
+                        <div className="info-item">
+                          <span className="info-label">Salary</span>
+                          <span className="info-value">{element.jobInfo.salary}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="cover-letter-section">
+                      <h5>Your Cover Letter</h5>
+                      <div className="cover-letter-content">
+                        {element.jobSeekerInfo.coverLetter}
+                      </div>
+                    </div>
+                    
+                    <div className="card-actions">
                       <Button
                         variant="outline"
                         onClick={() => handleDeleteApplication(element._id)}
+                        className="btn-danger"
                       >
-                        Delete Application
+                        <RiDeleteBinLine />
+                        Withdraw Application
                       </Button>
                       <Button
                         href={element.jobSeekerInfo?.resume?.url}

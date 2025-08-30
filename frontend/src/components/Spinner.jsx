@@ -3,18 +3,12 @@ import { ClipLoader } from "react-spinners";
 
 const Spinner = () => {
   return (
-    <>
-      <section
-        style={{
-          minHeight: "525px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <ClipLoader size={150} />
-      </section>
-    </>
+    <div className="spinner-container">
+      <div className="spinner-content">
+        <ClipLoader size={60} color="var(--primary)" />
+        <p>Loading...</p>
+      </div>
+    </div>
   );
 };
 

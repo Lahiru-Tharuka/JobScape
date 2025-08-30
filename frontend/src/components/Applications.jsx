@@ -9,6 +9,7 @@ import {
 } from "../store/slices/applicationSlice";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
+import { RiDeleteBin6Line, RiFileList3Line } from "react-icons/ri";
 
 const Applications = () => {
   const { applications, loading, error, message } = useSelector(
@@ -38,55 +39,71 @@ const Applications = () => {
       {loading ? (
         <Spinner />
       ) : applications && applications.length <= 0 ? (
-        <h1>You have no applications from job seekers.</h1>
+        <div className="empty-state">
+          <div className="empty-icon">
+            <RiFileList3Line />
+          </div>
+          <h2>No Applications Yet</h2>
+          <p>You have no applications from job seekers at this time.</p>
+        </div>
       ) : (
         <>
           <div className="account_components">
-            <h3>Applications For Your Posted Jobs</h3>
+            <div className="component-header">
+              <h3>Applications For Your Posted Jobs</h3>
+              <p>{applications.length} application{applications.length !== 1 ? 's' : ''} found</p>
+            </div>
             <div className="applications_container">
               {applications.map((element) => {
                 return (
-                  <div className="card" key={element._id}>
-                    <p className="sub-sec">
-                      <span>Job Title: </span> {element.jobInfo.jobTitle}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Applicant's Name: </span>{" "}
-                      {element.jobSeekerInfo.name}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Applicant's Email:</span>{" "}
-                      {element.jobSeekerInfo.email}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Applicant's Phone: </span>{" "}
-                      {element.jobSeekerInfo.phone}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Applicant's Address: </span>{" "}
-                      {element.jobSeekerInfo.address}
-                    </p>
-                    <p className="sub-sec">
-                      <span>Applicant's CoverLetter: </span>
-                      <textarea
-                        value={element.jobSeekerInfo.coverLetter}
-                        rows={5}
-                        disabled
-                      ></textarea>
-                    </p>
-                    <div className="btn-wrapper">
+                  <div className="card application-card" key={element._id}>
+                    <div className="card-header">
+                      <h4>{element.jobInfo.jobTitle}</h4>
+                      <span className="application-date">
+                        {new Date(element.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                    
+                    <div className="applicant-info">
+                      <h5>Applicant Details</h5>
+                      <div className="info-grid">
+                        <div className="info-item">
+                          <span className="info-label">Name</span>
+                          <span className="info-value">{element.jobSeekerInfo.name}</span>
+                        </div>
+                        <div className="info-item">
+                          <span className="info-label">Email</span>
+                          <span className="info-value">{element.jobSeekerInfo.email}</span>
+                        </div>
+                        <div className="info-item">
+                          <span className="info-label">Phone</span>
+                          <span className="info-value">{element.jobSeekerInfo.phone || 'Not provided'}</span>
+                        </div>
+                        <div className="info-item">
+                          <span className="info-label">Address</span>
+                          <span className="info-value">{element.jobSeekerInfo.address || 'Not provided'}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="cover-letter-section">
+                      <h5>Cover Letter</h5>
+                      <div className="cover-letter-content">
+                        {element.jobSeekerInfo.coverLetter}
+                      </div>
+                    </div>
+                    
+                    <div className="card-actions">
                       <button
-                        className="outline_btn"
+                        className="btn btn-danger"
                         onClick={() => handleDeleteApplication(element._id)}
                       >
+                        <RiDeleteBin6Line />
                         Delete Application
                       </button>
                       <Link
-                        to={
-                          element.jobSeekerInfo &&
-                          element.jobSeekerInfo.resume.url
-                        }
-                        className="btn"
+                        to={element.jobSeekerInfo?.resume?.url}
+                        className="btn btn-primary"
                         target="_blank"
                       >
                         View Resume

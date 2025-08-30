@@ -28,6 +28,7 @@ const Dashboard = () => {
     dispatch(logout());
     toast.success("Logged out successfully.");
   };
+
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -36,164 +37,146 @@ const Dashboard = () => {
     if (!isAuthenticated) {
       navigateTo("/");
     }
-  }, [dispatch, error, loading, isAuthenticated]);
+  }, [dispatch, error, loading, isAuthenticated, navigateTo]);
+
+  const renderComponent = () => {
+    switch (componentName) {
+      case "My Profile":
+        return <MyProfile />;
+      case "Update Profile":
+        return <UpdateProfile />;
+      case "Update Password":
+        return <UpdatePassword />;
+      case "Job Post":
+        return <JobPost />;
+      case "My Jobs":
+        return <MyJobs />;
+      case "Applications":
+        return <Applications />;
+      case "My Applications":
+        return <MyApplications />;
+      case "Recommended Jobs":
+        return <RecommendedJobs />;
+      default:
+        return <MyProfile />;
+    }
+  };
 
   return (
-    <>
-      <section className="account">
-        <div className="component_header">
-          <p>Dashboard</p>
-          <p>
-            Welcome! <span>{user && user.name}</span>
-          </p>
-        </div>
-        <div className="container">
-          <div className={show ? "sidebar showSidebar" : "sidebar"}>
-            <ul className="sidebar_links">
-              <h4>Manage Account</h4>
+    <section className="dashboard">
+      <div className="dashboard-container">
+        <div className={`dashboard-sidebar ${show ? "show" : ""}`}>
+          <div className="sidebar-header">
+            <div className="user-info">
+              <h3>Welcome, {user?.name}</h3>
+              <p className="user-role">{user?.role}</p>
+            </div>
+          </div>
+          
+          <nav className="sidebar-nav">
+            <h4>Manage Account</h4>
+            <ul className="nav-menu">
               <li>
                 <button
-                  onClick={() => {
-                    setComponentName("My Profile");
-                    setShow(!show);
-                  }}
+                  className={componentName === "My Profile" ? "active" : ""}
+                  onClick={() => setComponentName("My Profile")}
                 >
                   My Profile
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => {
-                    setComponentName("Update Profile");
-                    setShow(!show);
-                  }}
+                  className={componentName === "Update Profile" ? "active" : ""}
+                  onClick={() => setComponentName("Update Profile")}
                 >
                   Update Profile
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => {
-                    setComponentName("Update Password");
-                    setShow(!show);
-                  }}
+                  className={componentName === "Update Password" ? "active" : ""}
+                  onClick={() => setComponentName("Update Password")}
                 >
                   Update Password
                 </button>
               </li>
 
-              {user && user.role === "Employer" && (
-                <li>
-                  <button
-                    onClick={() => {
-                      setComponentName("Job Post");
-                      setShow(!show);
-                    }}
-                  >
-                    Post New Job
-                  </button>
-                </li>
+              {user?.role === "Employer" && (
+                <>
+                  <li>
+                    <button
+                      className={componentName === "Job Post" ? "active" : ""}
+                      onClick={() => setComponentName("Job Post")}
+                    >
+                      Post New Job
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className={componentName === "My Jobs" ? "active" : ""}
+                      onClick={() => setComponentName("My Jobs")}
+                    >
+                      My Jobs
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className={componentName === "Applications" ? "active" : ""}
+                      onClick={() => setComponentName("Applications")}
+                    >
+                      Applications
+                    </button>
+                  </li>
+                </>
               )}
-              {user && user.role === "Employer" && (
-                <li>
-                  <button
-                    onClick={() => {
-                      setComponentName("My Jobs");
-                      setShow(!show);
-                    }}
-                  >
-                    My Jobs
-                  </button>
-                </li>
+
+              {user?.role === "Job Seeker" && (
+                <>
+                  <li>
+                    <button
+                      className={componentName === "My Applications" ? "active" : ""}
+                      onClick={() => setComponentName("My Applications")}
+                    >
+                      My Applications
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className={componentName === "Recommended Jobs" ? "active" : ""}
+                      onClick={() => setComponentName("Recommended Jobs")}
+                    >
+                      Recommended Jobs
+                    </button>
+                  </li>
+                </>
               )}
-              {user && user.role === "Employer" && (
-                <li>
-                  <button
-                    onClick={() => {
-                      setComponentName("Applications");
-                      setShow(!show);
-                    }}
-                  >
-                    Applications
-                  </button>
-                </li>
-              )}
-              {user && user.role === "Job Seeker" && (
-                <li>
-                  <button
-                    onClick={() => {
-                      setComponentName("My Applications");
-                      setShow(!show);
-                    }}
-                  >
-                    My Applications
-                  </button>
-                </li>
-              )}
-              {user && user.role === "Job Seeker" && (
-                <li>
-                  <button
-                    onClick={() => {
-                      setComponentName("Recommended Jobs");
-                      setShow(!show);
-                    }}
-                  >
-                    Recommended Jobs
-                  </button>
-                </li>
-              )}
+
               <li>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} className="logout-btn">
+                  Logout
+                </button>
               </li>
             </ul>
-          </div>
-          <div className="banner">
-            <div
-              className={
-                show ? "sidebar_icon move_right" : "sidebar_icon move_left"
-              }
-            >
-              <LuMoveRight
-                onClick={() => setShow(!show)}
-                className={show ? "left_arrow" : "right_arrow"}
-              />
-            </div>
-            {(() => {
-              switch (componentName) {
-                case "My Profile":
-                  return <MyProfile />;
-                  break;
-                case "Update Profile":
-                  return <UpdateProfile />;
-                  break;
-                case "Update Password":
-                  return <UpdatePassword />;
-                  break;
-                case "Job Post":
-                  return <JobPost />;
-                  break;
-                case "My Jobs":
-                  return <MyJobs />;
-                  break;
-                case "Applications":
-                  return <Applications />;
-                  break;
-                case "My Applications":
-                  return <MyApplications />;
-                  break;
-                case "Recommended Jobs":
-                  return <RecommendedJobs />;
-                  break;
+          </nav>
+        </div>
 
-                default:
-                  <MyProfile />;
-                  break;
-              }
-            })()}
+        <div className="dashboard-content">
+          <div className="dashboard-header">
+            <button
+              className="sidebar-toggle"
+              onClick={() => setShow(!show)}
+            >
+              <LuMoveRight />
+            </button>
+            <h1>{componentName}</h1>
+          </div>
+
+          <div className="dashboard-main">
+            {renderComponent()}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
