@@ -111,7 +111,6 @@ input::-webkit-outer-spin-button {
 .navbar .logo img {
   width: 250px;   /* Change to your desired width */
   height: auto;  /* Keeps aspect ratio */
-  opacity: 0.8;
 }
 
 .navbar .links {
@@ -170,7 +169,6 @@ input::-webkit-outer-spin-button {
   
   .navbar .logo img {
     width: 75px;
-    opacity: 0.8;
   }
 }
 
@@ -215,7 +213,6 @@ input::-webkit-outer-spin-button {
   .navbar .logo img {
     width: 150px;  /* Increased from 120px */
     height: auto;
-    opacity: 0.8;
   }
   
   .navbar .links {
@@ -262,7 +259,6 @@ input::-webkit-outer-spin-button {
     
     .navbar .logo img {
       width: 100px;  /* Increased from 75px */
-      opacity: 0.8;
     }
   }
   
@@ -315,7 +311,6 @@ input::-webkit-outer-spin-button {
     
     .navbar .logo img {
       width: 85px;  /* Increased from previous size */
-      opacity: 0.8;
     }
     
     header {
@@ -351,7 +346,6 @@ input::-webkit-outer-spin-button {
     
     .navbar .logo img {
       width: 60px;  /* Increased from 40px */
-      opacity: 0.8;
     }
     
     .navbar {
