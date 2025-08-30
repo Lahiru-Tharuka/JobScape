@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const server = import.meta.env.VITE_API_URL;
-
 const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -91,7 +89,7 @@ export const register = (data) => async (dispatch) => {
   dispatch(userSlice.actions.registerRequest());
   try {
     const response = await axios.post(
-      `${server}/user/register`,
+      "http://localhost:4000/api/v1/user/register",
       data,
       {
         withCredentials: true,
@@ -109,7 +107,7 @@ export const login = (data) => async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
     const response = await axios.post(
-      `${server}/user/login`,
+      "http://localhost:4000/api/v1/user/login",
       data,
       {
         withCredentials: true,
@@ -126,9 +124,12 @@ export const login = (data) => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchUserRequest());
   try {
-    const response = await axios.get(`${server}/user/getuser`, {
-      withCredentials: true,
-    });
+    const response = await axios.get(
+      "http://localhost:4000/api/v1/user/getuser",
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(userSlice.actions.fetchUserSuccess(response.data.user));
     dispatch(userSlice.actions.clearAllErrors());
   } catch (error) {
@@ -137,9 +138,12 @@ export const getUser = () => async (dispatch) => {
 };
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get(`${server}/user/logout`, {
-      withCredentials: true,
-    });
+    await axios.get(
+      "http://localhost:4000/api/v1/user/logout",
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(userSlice.actions.logoutSuccess());
     dispatch(userSlice.actions.clearAllErrors());
   } catch (error) {
