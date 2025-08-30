@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+  --color-bg: #ffffff;
+  --color-bg-elevated: #ffffff;
+  --color-text: #111111;
+  --color-primary: #13617d;
+  --color-border: #444444;
+}
+
+body.dark {
+  --color-bg: #111111;
+  --color-bg-elevated: #1e1e1e;
+  --color-text: #f5f5f5;
+  --color-primary: #13617d;
+  --color-border: #333333;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +26,8 @@
   font-size: 20px;
 }
 body {
-  background: #fff;
-  color: #111;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
@@ -21,8 +37,8 @@ input::-webkit-outer-spin-button {
 .btn,
 .black_btn,
 .outline_btn {
-  background: #13617d;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-text);
   font-weight: 500;
   border: none;
   transition: 0.3s;
@@ -44,35 +60,29 @@ input::-webkit-outer-spin-button {
   }
 }
 .btn:hover {
-  background-color: #111;
-  color: #fff;
+  background-color: var(--color-text);
+  color: var(--color-bg);
   transition: 0.3s;
   cursor: pointer;
 }
 .black_btn {
-  background: #111;
-  color: #fff;
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
 }
 .black_btn:hover {
-  background: #fff;
-  color: #111;
+  background: var(--color-text);
+  color: var(--color-bg);
   transition: 0.3s;
   cursor: pointer;
 }
 .outline_btn {
   background: transparent;
-  color: #13617d;
-  border: 1px solid #13617d;
-}
-.btn:hover {
-  background-color: #111;
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 .outline_btn:hover {
-  background: #13617d;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-text);
   transition: 0.3s;
   cursor: pointer;
 }
@@ -80,17 +90,20 @@ input::-webkit-outer-spin-button {
 .navbar {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgb(133, 133, 133);
+  border-bottom: 1px solid var(--color-border);
   padding: 20px 110px;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: var(--color-bg-elevated);
 }
 
 .navbar .hamburger {
   display: none;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
 }
 
 .navbar .logo {
@@ -104,7 +117,7 @@ input::-webkit-outer-spin-button {
   font-size: 26px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #13617d;
+  color: var(--color-primary);
   margin: 0;
 }
 
@@ -132,12 +145,12 @@ input::-webkit-outer-spin-button {
 
 .navbar .links ul li a {
   text-decoration: none;
-  color: #444;
+  color: var(--color-text);
   transition: 0.3s;
 }
 
 .navbar .links ul li a:hover {
-  color: #13617d;
+  color: var(--color-primary);
   transition: 0.3s;
 }
 
@@ -150,11 +163,19 @@ input::-webkit-outer-spin-button {
   border: none;
   cursor: pointer;
   font-size: 24px;
-  color: #444;
+  color: var(--color-text);
 }
 .navbar .theme_toggle:hover {
-  color: #13617d;
+  color: var(--color-primary);
   transition: 0.3s;
+}
+
+.site-footer {
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid var(--color-border);
 }
 
 @media (max-width: 1320px) {
@@ -184,15 +205,18 @@ input::-webkit-outer-spin-button {
   .navbar {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(133, 133, 133);
+    border-bottom: 1px solid var(--color-border);
     padding: 20px 110px;
     align-items: center;
     position: relative;
-    background: #fff;
+    background: var(--color-bg-elevated);
   }
   
   .navbar .hamburger {
     display: none;
+    background: transparent;
+    border: none;
+    color: var(--color-text);
   }
   
   .navbar .logo {
@@ -206,7 +230,7 @@ input::-webkit-outer-spin-button {
     font-size: 32px;  /* Increased from 26px */
     font-weight: 600;
     text-transform: uppercase;
-    color: #13617d;
+    color: var(--color-primary);
     margin: 0;
   }
   
@@ -234,12 +258,12 @@ input::-webkit-outer-spin-button {
   
   .navbar .links ul li a {
     text-decoration: none;
-    color: #444;
+    color: var(--color-text);
     transition: 0.3s;
   }
   
   .navbar .links ul li a:hover {
-    color: #13617d;
+    color: var(--color-primary);
     transition: 0.3s;
   }
   
@@ -275,6 +299,10 @@ input::-webkit-outer-spin-button {
       display: flex;
       font-size: 24px;
       z-index: 2;
+      background: transparent;
+      border: none;
+      color: var(--color-text);
+      cursor: pointer;
     }
     
     .navbar .links {
@@ -443,20 +471,11 @@ footer div ul a {
   transition: 0.3s;
 }
 footer div ul a:hover {
-  color: #13617d;
+  color: var(--color-primary);
   transition: 0.3s;
 }
 footer div ul a span {
   display: flex;
-}
-.copyright {
-  background: #111;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: #8080805c;
-  font-weight: 300;
-  padding: 20px;
 }
 @media (max-width: 1112px) {
   footer {
@@ -569,7 +588,7 @@ footer div ul a span {
 .services h3 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #13617d;
+  color: var(--color-primary);
   text-transform: uppercase;
 }
 .services .grid {
@@ -599,7 +618,7 @@ footer div ul a span {
 }
 .services .grid .card .icon {
   font-size: 40px;
-  color: #13617d;
+  color: var(--color-primary);
 }
 @media (max-width: 1720px) {
   .services {
@@ -780,7 +799,7 @@ footer div ul a span {
   border: 1px solid #13617d;
   margin-top: 25px;
   font-weight: 700;
-  color: #13617d;
+  color: var(--color-primary);
   font-size: 1.2rem;
   text-decoration: none;
   border-radius: 7px;
@@ -1047,7 +1066,7 @@ footer div ul a span {
   color: #111;
 }
 .account .component_header p:last-child span {
-  color: #13617d;
+  color: var(--color-primary);
 }
 
 .account .container {
@@ -1079,11 +1098,11 @@ footer div ul a span {
   background: transparent;
 }
 .account .container .sidebar .sidebar_links button:hover {
-  color: #13617d;
+  color: var(--color-primary);
   transition: 0.3s;
 }
 .account .container .sidebar .sidebar_links .active {
-  color: #13617d;
+  color: var(--color-primary);
 }
 .account .container .banner {
   width: 100%;
@@ -1109,7 +1128,7 @@ footer div ul a span {
 .account_components h3 {
   font-size: 30px;
   font-weight: 600;
-  color: #13617d;
+  color: var(--color-primary);
 }
 .account_components div:first-child {
   font-size: 30px;
@@ -1582,30 +1601,4 @@ button:disabled:hover {
   background: gray;
   cursor: not-allowed;
   color: #111;
-}
-
-body.dark {
-  background: #111;
-  color: #fff;
-}
-
-body.dark .navbar {
-  background: #111;
-  border-bottom: 1px solid #444;
-}
-
-body.dark .navbar .links ul li a {
-  color: #fff;
-}
-
-body.dark .navbar .links ul li a:hover {
-  color: #13617d;
-}
-
-body.dark .theme_toggle {
-  color: #fff;
-}
-
-body.dark .theme_toggle:hover {
-  color: #13617d;
 }
