@@ -1442,7 +1442,7 @@ p {
 
 /* Jobs Page Styles */
 .jobs-page {
-  padding: 2rem 0;
+  padding: 6rem 0 2rem;
   min-height: 100vh;
   background: var(--bg-primary);
 }
