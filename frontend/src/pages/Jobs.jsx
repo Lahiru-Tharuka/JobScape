@@ -88,6 +88,10 @@ const Jobs = () => {
         <Spinner />
       ) : (
         <section className="jobs">
+          <div className="jobs-header">
+            <h1>Find Your Dream Job</h1>
+            <p>Discover opportunities that match your skills and aspirations</p>
+          </div>
           <div className="search-tab-wrapper">
             <input
               type="text"
