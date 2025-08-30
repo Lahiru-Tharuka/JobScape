@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const server = import.meta.env.VITE_API_URL;
-
 const recommendationSlice = createSlice({
   name: "recommendation",
   initialState: {
@@ -38,7 +36,7 @@ export const fetchRecommendations = (resume) => async (dispatch) => {
   try {
     dispatch(recommendationSlice.actions.request());
     const { data } = await axios.post(
-      `${server}/recommend`,
+      `http://localhost:4000/api/v1/recommend`,
       { resume },
       { withCredentials: true }
     );
@@ -56,7 +54,7 @@ export const fetchSkillSuggestions = (resume, category) => async (dispatch) => {
   try {
     dispatch(recommendationSlice.actions.request());
     const { data } = await axios.post(
-      `${server}/suggestSkills`,
+      `http://localhost:4000/api/v1/suggestSkills`,
       { resume, category },
       { withCredentials: true }
     );
