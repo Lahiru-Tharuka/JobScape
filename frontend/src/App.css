@@ -502,7 +502,7 @@ footer div ul a span {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
 }
 .hero .content {
   position: relative;
