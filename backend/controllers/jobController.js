@@ -92,19 +92,6 @@ export const getAllJobs = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-export const searchJobs = catchAsyncErrors(async (req, res, next) => {
-  const { title, location } = req.query;
-  const query = {};
-  if (title) {
-    query.title = { $regex: title, $options: "i" };
-  }
-  if (location) {
-    query.location = { $regex: location, $options: "i" };
-  }
-  const jobs = await Job.find(query);
-  res.status(200).json({ success: true, jobs, count: jobs.length });
-});
-
 export const getMyJobs = catchAsyncErrors(async (req, res, next) => {
   const myJobs = await Job.find({ postedBy: req.user._id });
   res.status(200).json({
