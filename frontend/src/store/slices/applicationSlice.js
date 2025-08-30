@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import apiUrl from "../../utils/api";
 
-const server = import.meta.env.VITE_API_URL;
+const server = apiUrl;
 
 const applicationSlice = createSlice({
   name: "applications",
