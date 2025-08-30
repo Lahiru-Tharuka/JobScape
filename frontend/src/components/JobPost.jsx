@@ -8,6 +8,7 @@ import {
   resetJobSlice,
 } from "../store/slices/jobSlice";
 import { CiCircleInfo } from "react-icons/ci";
+import Button from "./ui/Button";
 
 const JobPost = () => {
   const [title, setTitle] = useState("");
@@ -76,6 +77,22 @@ const JobPost = () => {
   const dispatch = useDispatch();
 
   const handlePostJob = (e) => {
+    e.preventDefault();
+    if (
+      !title ||
+      !jobType ||
+      !location ||
+      !companyName ||
+      !introduction ||
+      !responsibilities ||
+      !qualifications ||
+      !jobNiche ||
+      !salary
+    ) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("jobType", jobType);
@@ -250,14 +267,13 @@ const JobPost = () => {
         />
       </div>
       <div>
-        <button
+        <Button
           style={{ margin: "0 auto" }}
-          className="btn"
           onClick={handlePostJob}
           disabled={loading}
         >
           Post Job
-        </button>
+        </Button>
       </div>
     </div>
   );

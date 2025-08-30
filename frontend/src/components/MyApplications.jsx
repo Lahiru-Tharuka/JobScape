@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   clearAllApplicationErrors,
@@ -9,9 +8,9 @@ import {
   fetchJobSeekerApplications,
 } from "../store/slices/applicationSlice";
 import Spinner from "../components/Spinner";
+import Button from "./ui/Button";
 
 const MyApplications = () => {
-  const { user, isAuthenticated } = useSelector((state) => state.user);
   const { loading, error, applications, message } = useSelector(
     (state) => state.applications
   );
@@ -77,22 +76,18 @@ const MyApplications = () => {
                       ></textarea>
                     </p>
                     <div className="btn-wrapper">
-                      <button
-                        className="outline_btn"
+                      <Button
+                        variant="outline"
                         onClick={() => handleDeleteApplication(element._id)}
                       >
                         Delete Application
-                      </button>
-                      <Link
-                        to={
-                          element.jobSeekerInfo &&
-                          element.jobSeekerInfo.resume.url
-                        }
-                        className="btn"
+                      </Button>
+                      <Button
+                        href={element.jobSeekerInfo?.resume?.url}
                         target="_blank"
                       >
                         View Resume
-                      </Link>
+                      </Button>
                     </div>
                   </div>
                 );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Button from "./ui/Button";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -32,17 +33,11 @@ const Hero = () => {
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-          <button type="submit" className="btn">
-            Search
-          </button>
+          <Button type="submit">Search</Button>
         </form>
         <div className="cta">
-          <Link to="/jobs" className="btn">
-            Browse Jobs
-          </Link>
-          <Link to="/dashboard" className="btn">
-            Post a Job
-          </Link>
+          <Button to="/jobs">Browse Jobs</Button>
+          <Button to="/dashboard">Post a Job</Button>
         </div>
       </div>
     </section>

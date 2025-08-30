@@ -2,12 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <>
-      <footer></footer>
-      <div className="copyright">
-        &copy; CopyRight 2025. All Rights Reserved By LAHIRU THARUKA
-      </div>
-    </>
+    <footer className="site-footer">
+      &copy; {new Date().getFullYear()} JobScape. All Rights Reserved.
+    </footer>
   );
 };
 
