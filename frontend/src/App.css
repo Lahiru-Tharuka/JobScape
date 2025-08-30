@@ -41,12 +41,79 @@
   padding: 0;
   box-sizing: border-box;
 }
+<<<<<<< HEAD
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
   transition: var(--transition);
+=======
+body {
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-align: center;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.btn,
+.black_btn,
+.outline_btn {
+  padding: 0.5em 1em;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  font-weight: 500;
+  min-width: 170px;
+  max-width: fit-content;
+  text-decoration: none;
+}
+@media (max-width: 410px) {
+  .btn,
+  .black_btn,
+  .outline_btn {
+    font-size: 18px;
+    font-weight: 400;
+    min-width: fit-content;
+    max-width: fit-content;
+    padding: 10px;
+  }
+}
+.btn {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+.btn:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-bg);
+}
+.black_btn {
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+}
+.black_btn:hover {
+  background: var(--color-secondary);
+  color: var(--color-bg);
+}
+.outline_btn {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+.outline_btn:hover {
+  background: var(--color-secondary);
+  color: var(--color-bg);
+>>>>>>> 3a161354a850b9cd7e82ecb9da08d01c7de1a3a7
 }
 
 body.light {
@@ -63,10 +130,25 @@ body.light {
   --border-light: #e2e8f0;
 }
 
+<<<<<<< HEAD
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+=======
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.navbar .hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+>>>>>>> 3a161354a850b9cd7e82ecb9da08d01c7de1a3a7
 }
 
 /* Typography */
