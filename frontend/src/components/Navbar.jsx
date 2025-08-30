@@ -6,7 +6,7 @@ import { FaSun, FaMoon } from "react-icons/fa";
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "light"
+    localStorage.getItem("theme") || "dark"
   );
   const { isAuthenticated } = useSelector((state) => state.user);
 
