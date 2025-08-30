@@ -28,7 +28,7 @@ const Jobs = () => {
       dispatch(clearAllJobErrors());
     }
     dispatch(fetchJobs(city, niche, searchKeyword));
-  }, [dispatch, error, city, niche, searchKeyword]);
+  }, [dispatch, error, city, niche]);
 
   const handleSearch = () => {
     dispatch(fetchJobs(city, niche, searchKeyword));
@@ -93,10 +93,9 @@ const Jobs = () => {
               type="text"
               value={searchKeyword}
               onChange={(e) => setSearchKeyword(e.target.value)}
-              placeholder="Search for jobs"
             />
             <button onClick={handleSearch}>Find Job</button>
-            <FaSearch onClick={handleSearch} />
+            <FaSearch />
           </div>
           <div className="wrapper">
             <div className="filter-bar">
