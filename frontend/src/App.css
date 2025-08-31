@@ -51,9 +51,19 @@ body {
 }
 
 input,
-select,
 textarea {
   text-align: left;
+}
+
+select {
+  text-align: center;
+  text-align-last: center;
+  padding: 0.5rem;
+}
+
+select option {
+  text-align: center;
+  padding: 0.25rem 0;
 }
 
 body.light {
@@ -1561,6 +1571,8 @@ p {
   color: var(--text-primary);
   font-size: 0.95rem;
   transition: var(--transition);
+  text-align: center;
+  text-align-last: center;
 }
 
 .filter-select:focus {
@@ -2077,6 +2089,12 @@ p {
 .form-group select,
 .form-group textarea {
   padding: 0.875rem 1rem;
+}
+
+.input-with-icon select,
+.form-group select {
+  text-align: center;
+  text-align-last: center;
 }
 
 .input-with-icon input:focus,
