@@ -779,6 +779,12 @@ p {
   border-bottom: 1px solid var(--border-color);
 }
 
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .avatar {
   width: 80px;
   height: 80px;
@@ -809,7 +815,7 @@ p {
 
 .detail-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -2523,16 +2529,15 @@ p {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.nav-menu li {
-  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .nav-menu button {
   width: 100%;
   text-align: left;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.25rem;
   background: none;
   border: none;
   color: var(--text-secondary);
@@ -2576,6 +2581,7 @@ p {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
 }
 
 .sidebar-toggle {
@@ -2640,13 +2646,24 @@ p {
   .dashboard-sidebar {
     width: 100%;
   }
-  
+
   .dashboard-main {
     padding: 1rem;
   }
-  
+
   .nav-menu button {
     padding: 1rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 
