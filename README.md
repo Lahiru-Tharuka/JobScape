@@ -24,14 +24,20 @@ service for resume analysis and job recommendations.
 
 ## Getting started
 
-1. **Install dependencies**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/JobScape.git
+   cd JobScape
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install               # install root dev dependencies
    cd backend && npm install # install backend dependencies
    cd ../frontend && npm install # install frontend dependencies
    ```
 
-2. **Start services**
+3. **Start services**
    ```bash
    # Using Node
    cd backend && npm run dev          # start API on http://localhost:4000
