@@ -50,6 +50,12 @@ body {
   transition: var(--transition);
 }
 
+input,
+select,
+textarea {
+  text-align: left;
+}
+
 body.light {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
@@ -2063,6 +2069,8 @@ p {
   border-radius: var(--radius);
   color: var(--text-primary);
   font-size: 1rem;
+  text-align: left;
+  text-align-last: left;
   transition: var(--transition);
 }
 
