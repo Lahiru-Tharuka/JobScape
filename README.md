@@ -41,7 +41,7 @@ service for resume analysis and job recommendations.
    ```bash
    # Using Node
    cd backend && npm run dev          # start API on http://localhost:4000
-   cd ../frontend && npm run dev      # start client on http://localhost:5173
+   cd ../frontend && npm run dev      # start client on http://localhost:5174
 
    # Machine‑learning service
    cd ../ml_service
